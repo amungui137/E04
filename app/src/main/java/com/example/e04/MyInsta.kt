@@ -37,6 +37,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -87,6 +88,10 @@ fun MyInstaLogin() {
                     .padding(bottom = 16.dp),
                 value = email,
                 onValueChange = { email = it },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color.Gray, // Cambia el color del borde cuando el campo de texto está enfocado
+                    unfocusedBorderColor = Color.LightGray // Cambia el color del borde cuando el campo de texto no está enfocado
+                ),
                 placeholder = { Text(text = "Email adress", color = Color.Gray) },
                 singleLine = true,
 
@@ -97,6 +102,10 @@ fun MyInstaLogin() {
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color.Gray,
+                    unfocusedBorderColor = Color.LightGray
+                ),
                 placeholder = { Text(text = "Password", color = Color.Gray) },
                 singleLine = true,
                 visualTransformation = if (passwordVisibility) VisualTransformation.None
@@ -122,7 +131,7 @@ fun MyInstaLogin() {
             text = "Forgotten password?",
             color = instagramColor,
             fontWeight = FontWeight.Bold,
-            fontSize = 10.sp,
+            fontSize = 12.sp,
             textAlign = TextAlign.End,
             modifier = Modifier
                 .fillMaxWidth()
@@ -133,7 +142,7 @@ fun MyInstaLogin() {
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(5.dp))
-                .height(40.dp)
+                .height(35.dp)
                 .background(instagramColor),
             onClick = { /* Acción de inicio de sesión */ },
             shape = RoundedCornerShape(5.dp),
@@ -161,7 +170,7 @@ fun MyInstaLogin() {
             Text(
                 text = "OR",
                 fontWeight = FontWeight.Bold,
-                fontSize = 10.sp,
+                fontSize = 12.sp,
                 color = Color.Gray,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
@@ -188,7 +197,7 @@ fun MyInstaLogin() {
             Text(
                 text = "Log in with Facebook",
                 fontWeight = FontWeight.Bold,
-                fontSize = 10.sp,
+                fontSize = 12.sp,
                 color = instagramColor
             )
         }
@@ -215,13 +224,13 @@ fun MyInstaLogin() {
         Text(
             text = "Don't have an account?",
             fontWeight = FontWeight.Bold,
-            fontSize = 10.sp,
-            color = Color.Gray
+            fontSize = 12.sp,
+            color = Color.LightGray
         )
         Text(
             text = " Sign Up",
             fontWeight = FontWeight.Bold,
-            fontSize = 10.sp,
+            fontSize = 12.sp,
             color = instagramColor
         )
     }
